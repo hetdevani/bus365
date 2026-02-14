@@ -1,0 +1,268 @@
+/**
+ * ============================================
+ * DESIGN TOKENS - CSS VARIABLES
+ * ============================================
+ * 
+ * This is the single source of truth for all design values.
+ * All components MUST use these tokens, never hardcoded values.
+ * 
+ * Philosophy:
+ * - Semantic naming (what it means, not what it looks like)
+ * - Theme-agnostic base tokens
+ * - Theme-specific overrides via data attributes
+ * - White-labeling ready
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BASE DESIGN TOKENS (Theme-agnostic)
+   ============================================ */
+:root {
+    /* -------------------- */
+    /* Spacing Scale */
+    /* -------------------- */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+
+    /* -------------------- */
+    /* Border Radius */
+    /* -------------------- */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+
+    /* -------------------- */
+    /* Typography Scale */
+    /* -------------------- */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* -------------------- */
+    /* Z-Index Layers */
+    /* -------------------- */
+    --z-index-base: 0;
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1100;
+    --z-index-fixed: 1200;
+    --z-index-modal: 1300;
+    --z-index-popover: 1400;
+    --z-index-tooltip: 1500;
+
+    /* -------------------- */
+    /* Motion Tokens */
+    /* -------------------- */
+    --duration-instant: 100ms;
+    --duration-fast: 200ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   LIGHT THEME (Default)
+   ============================================ */
+:root,
+[data-theme="light"] {
+    /* -------------------- */
+    /* Primary Brand Color (Minimals Green #00A76F) */
+    /* -------------------- */
+    --color-primary-50: #F3FDFA;
+    --color-primary-100: #D3FCD2;
+    --color-primary-200: #AAF27F;
+    --color-primary-300: #5BE584;
+    --color-primary-400: #00AB55;
+    --color-primary-500: #00A76F;
+    /* Main Brand */
+    --color-primary-600: #007B55;
+    --color-primary-700: #005249;
+    --color-primary-800: #00303D;
+    --color-primary-900: #001C2B;
+
+    /* -------------------- */
+    /* Secondary (Dark Blue/Grey Accent) */
+    /* -------------------- */
+    --color-secondary-50: #F9FAFB;
+    --color-secondary-100: #F4F6F8;
+    --color-secondary-200: #DFE3E8;
+    --color-secondary-500: #637381;
+    --color-secondary-900: #212B36;
+
+    /* -------------------- */
+    /* Success (Green) */
+    /* -------------------- */
+    --color-success-50: rgba(34, 197, 94, 0.16);
+    --color-success-500: #22C55E;
+    --color-success-700: #118D57;
+
+    /* -------------------- */
+    /* Warning (Amber) */
+    /* -------------------- */
+    --color-warning-50: rgba(255, 171, 0, 0.16);
+    --color-warning-500: #FFAB00;
+    --color-warning-700: #B76E00;
+
+    /* -------------------- */
+    /* Danger (Red) */
+    /* -------------------- */
+    --color-danger-50: rgba(255, 86, 48, 0.16);
+    --color-danger-500: #FF5630;
+    --color-danger-700: #B71D18;
+
+    /* -------------------- */
+    /* Info (Blue) */
+    /* -------------------- */
+    --color-info-50: rgba(0, 184, 217, 0.16);
+    --color-info-500: #00B8D9;
+    --color-info-700: #006C9C;
+
+    /* -------------------- */
+    /* Backgrounds */
+    /* -------------------- */
+    --color-background-base: #F9FAFB;
+    --color-background-surface: #FFFFFF;
+    --color-background-elevated: #FFFFFF;
+    --color-background-overlay: rgba(22, 28, 36, 0.72);
+
+    /* -------------------- */
+    /* Text */
+    /* -------------------- */
+    --color-text-primary: #212B36;
+    --color-text-secondary: #637381;
+    --color-text-tertiary: #919EAB;
+    --color-text-disabled: #C4CDD5;
+    --color-text-inverse: #FFFFFF;
+
+    /* -------------------- */
+    /* Borders */
+    /* -------------------- */
+    --color-border-default: rgba(145, 158, 171, 0.24);
+    --color-border-subtle: rgba(145, 158, 171, 0.12);
+
+    /* -------------------- */
+    /* Shadows */
+    /* -------------------- */
+    --shadow-premium: 0 0 2px 0 rgba(145, 158, 171, 0.2), 0 12px 24px -4px rgba(145, 158, 171, 0.12);
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+[data-theme="dark"] {
+    /* Primary */
+    --color-primary-500: #00A76F;
+    --color-primary-100: #003328;
+    /* Tint for backgrounds */
+
+    /* Backgrounds */
+    --color-background-base: #161C24;
+    --color-background-surface: #212B36;
+    --color-background-elevated: #28303B;
+    --color-background-overlay: rgba(22, 28, 36, 0.8);
+
+    /* Text */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #919EAB;
+    --color-text-tertiary: #637381;
+    --color-text-disabled: #454F5B;
+    --color-text-inverse: #212B36;
+
+    /* Borders */
+    --color-border-default: rgba(145, 158, 171, 0.12);
+    --color-border-subtle: rgba(145, 158, 171, 0.08);
+
+    /* Shadows */
+    --shadow-premium: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 12px 24px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        @apply antialiased;
+    }
+
+    body {
+        @apply bg-background-base text-text-primary;
+        font-family: 'Public Sans', system-ui, sans-serif;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+@layer utilities {
+
+    /* Glassmorphism Classes */
+    .glass-light {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .glass-dark {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass {
+        @apply glass-light;
+    }
+
+    [data-theme="dark"] .glass {
+        @apply glass-dark;
+    }
+
+    /* Modern Dropdown Item */
+    .dropdown-item-hover {
+        @apply transition-colors duration-200;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    [data-theme="dark"] .dropdown-item-hover {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    }
+}
